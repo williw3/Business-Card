@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Contact Cards</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#btn').click(function(){
+				var first = $('#first').val();
+				var last = $('#last').val();
+				var email = $('#email').val();
+				var descrp = $('#description').val();
+				$('#right-content').append("<div id='card'><p>" + first + ' ' + last + '<br>' + email + "</p><p id='back'>" + descrp + "</p></div>");
+				$('#first').val('');
+				$('#last').val('');
+				$('#email').val('');
+				$('#description').val('');
+				return false;
+			});
+			$(document).on('click', '#card', function(){
+				$(this).children().toggle();
+			});
+		});
+
+	</script>
+	<style type="text/css">
+		#wrapper{
+			width: 1200px;
+			border: 1px solid black;
+			padding: 5px;
+
+		}
+		#right-content{
+			vertical-align: top;
+		}
+		#left-content, #right-content{
+			/*border: 1px solid black;*/
+			display: inline-block;
+			width: 596px;
+
+		}
+		input{
+			display: block;
+			margin-bottom: 5px;
+		}
+		#description{
+			height: 100px;
+			width: 300px;
+		}
+		#card{
+			width: 250px;
+			height: 100px;
+			text-align: center;
+			border: 1px solid black;
+			border-radius: 5px;
+			margin: 5px 0;
+			box-shadow: 5px 5px 2px #888888;
+		}
+		#back{
+			display: none;
+		}
+		#btn{
+			margin-top: 5px;
+		}
+
+	</style>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="left-content">
+			<form>
+				<label>First Name: </label>
+				<input id="first" type="text" placeholder="First Name" name="first_name">
+				<label>Last Name: </label>
+				<input id="last" type="text" placeholder="Last Name">
+				<label>Email: </label>
+				<input id="email" type="text" placeholder="Email Address">
+				<label>Description:  </label>
+				<input id="description" type="text" placeholder="Add Desciption...">
+				<input id="btn" type="submit" value="Add User">
+			</form>
+			
+		</div>
+		<div id="right-content">
+		
+		
+		</div>
+	</div>
+
+</body>
+</html>
